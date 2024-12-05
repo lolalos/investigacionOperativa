@@ -69,24 +69,23 @@ def reconstruirCaminoRecursivo(predecesores, nodo):
 
 def generarResultados(distancias, predecesores, inicio, metodo):
     """
-    Genera resultados detallados de forma amigable.
+    Genera resultados detallados en formato de tabla.
 
     :param distancias: Diccionario con las distancias mínimas desde el nodo fuente.
     :param predecesores: Diccionario con los predecesores de cada nodo.
     :param inicio: Nodo fuente.
     :param metodo: Nombre del método utilizado.
-    :return: String con los resultados.
+    :return: String con los resultados en formato de tabla.
     """
-    resultado = f"\nResultados con el método: {metodo}\n"
-    resultado += f"Nodo fuente: {inicio}\n\n"
-    resultado += "Nodo\tDistancia\tCamino\n"
-    resultado += "-" * 40 + "\n"
+    resultado = f"\n## Resultados con el método: {metodo}\n\n"
+    resultado += "| Nodo | Distancia | Camino              |\n"
+    resultado += "|------|-----------|---------------------|\n"
     for nodo in distancias:
         if distancias[nodo] == float('inf'):
-            resultado += f"{nodo}\t∞\t\t-\n"
+            resultado += f"| {nodo}  | ∞         | -                   |\n"
         else:
             camino = reconstruirCaminoRecursivo(predecesores, nodo)
-            resultado += f"{nodo}\t{distancias[nodo]}\t\t{' -> '.join(camino)}\n"
+            resultado += f"| {nodo}  | {distancias[nodo]}         | {' -> '.join(camino)} |\n"
     return resultado
 
 # Ejemplo de uso
@@ -109,7 +108,7 @@ distanciasSinCola, predecesoresSinCola = dijkstraSinColaPrioridad(grafoEjemplo, 
 resultadosSinCola = generarResultados(distanciasSinCola, predecesoresSinCola, 'A', "Dijkstra sin cola de prioridad")
 
 # Guardar resultados en archivo README.md
-resultadoFinal = f"# 1. RESULTADOS DE EL CÁLCULO DE RUTA MÍNIMA\n\n{matrizGrafo}\n{resultadosConCola}\n{resultadosSinCola}"
+resultadoFinal = f"# 1. RESULTADOS DE EL CÁLCULO DE RUTA MÍNIMA\n\n```\n{matrizGrafo}\n```\n{resultadosConCola}\n{resultadosSinCola}"
 file_path = "README.md"
 with open(file_path, "w", encoding="utf-8") as file:
     file.write(resultadoFinal)
