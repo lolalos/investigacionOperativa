@@ -21,7 +21,7 @@ def mostrarMatrizDePosiciones(grafo):
         fila = f"| {nodo} |"
         for vecino in nodos:
             capacidad = grafo.get(nodo, {}).get(vecino, float('inf'))
-            fila += f" {'inf' if capacidad == float('inf') else capacidad} |"
+            fila += f" {'∞' if capacidad == float('inf') else capacidad} |"
         resultado += fila + "\n"
     return resultado
 
