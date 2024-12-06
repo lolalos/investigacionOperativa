@@ -34,27 +34,6 @@ D       ∞       ∞       ∞       ∞
 
 ## 2. CÁLCULO DE FLUJO MÁXIMO
 
-### Matriz de Posiciones del Grafo
-
-| Nodo |A | B | C | D | S | T |
-|------|------|------|------|------|------|------|
-| A | inf | 15 | 10 | inf | inf | inf |
-| B | inf | inf | 10 | 10 | inf | inf |
-| C | inf | inf | inf | inf | inf | 10 |
-| D | inf | inf | inf | inf | inf | 10 |
-| S | 10 | 5 | inf | inf | inf | inf |
-| T | inf | inf | inf | inf | inf | inf |
-
-
-### Detalles del Algoritmo Ford-Fulkerson
-
-| Iteración | Camino Aumentante         | Flujo del Camino |
-|-----------|---------------------------|------------------|
-| 1 | S -> A -> C -> T | 10 |
-| 2 | S -> B -> D -> T | 5 |
-
-
-**Flujo Máximo desde 'S' hasta 'T': 15**
 
 ## 2. CÁLCULO DE FLUJO MÁXIMO
 
@@ -62,12 +41,12 @@ D       ∞       ∞       ∞       ∞
 
 | Nodo |A | B | C | D | S | T |
 |------|------|------|------|------|------|------|
-| A | inf | 15 | 10 | inf | inf | inf |
-| B | inf | inf | 10 | 10 | inf | inf |
-| C | inf | inf | inf | inf | inf | 10 |
-| D | inf | inf | inf | inf | inf | 10 |
-| S | 10 | 5 | inf | inf | inf | inf |
-| T | inf | inf | inf | inf | inf | inf |
+| A | ∞ | 15 | 10 | ∞ | ∞ | ∞ |
+| B | ∞ | ∞ | 10 | 10 | ∞ | ∞ |
+| C | ∞ | ∞ | ∞ | ∞ | ∞ | 10 |
+| D | ∞ | ∞ | ∞ | ∞ | ∞ | 10 |
+| S | 10 | 5 | ∞ | ∞ | ∞ | ∞ |
+| T | ∞ | ∞ | ∞ | ∞ | ∞ | ∞ |
 
 
 ### Detalles del Algoritmo Ford-Fulkerson
